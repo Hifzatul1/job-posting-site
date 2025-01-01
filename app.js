@@ -8,9 +8,14 @@ dotenv.config();
 
 const app = express();
 
+
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://luminous-malasada-78d8f1.netlify.app/'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 
 // Connect to Database
 connectDB();
