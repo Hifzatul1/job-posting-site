@@ -15,6 +15,10 @@ app.use(cors());
 // Connect to Database
 connectDB();
 
+app.get('/', (req,res) => 
+    {
+    res.send('Welcome to the Job posting Site!');
+});
 // API Routes
 app.use("/api/jobs", jobRoutes);
 
