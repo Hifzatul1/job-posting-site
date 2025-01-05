@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+const cors = require('cors');
 const connectDB = require("./config/db");
 const jobRoutes = require("./routes/jobRoutes");
 const dotenv = require('dotenv');
@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://luminous-malasada-78d8f1.netlify.app/'],
+    origin: ['http://localhost:3000', 'https://job-posting-site-1.onrender.com', ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
