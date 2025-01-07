@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://www.hireeco.in/' ],
+    origin: ['http://localhost:3000', 'https://job-posting-site-1-7qrm.onrender.com/', 'https://www.hireeco.in/'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
