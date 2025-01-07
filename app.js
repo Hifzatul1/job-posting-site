@@ -11,11 +11,20 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+const allowedOrigins = ['http://localhost:3000', 'https://job-posting-site-1-7qrm.onrender.com', 'https://www.hireeco.in'];
+
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://job-posting-site-1-7qrm.onrender.com/', 'https://www.hireeco.in/'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
+
 
 // Connect to Database
 connectDB();
